@@ -2,6 +2,24 @@
 
 本仓库把 STM32 工程中容易混淆的两件事分开说明：
 
+## 为什么整理这套方案
+
+本项目原先使用 STM32CubeMX + VS Code 开发，但原有调试配置没有打通手上的无线 DAPLink。因此补充了 **Cortex-Debug + OpenOCD + CMSIS-DAP** 配置，使无线探针可以用于下载、断点调试和运行中内存采样。
+
+这不表示 CubeMX + VS Code 无法无线调试：CubeMX 负责外设配置和代码生成，VS Code 需要相应调试扩展及后端。ST 的调试文档也允许使用 Cortex-Debug 等第三方扩展，见[官方说明](https://dev.st.com/stm32cube-docs/stm32cubeide-vscode/latest/en/docs/markup/development/debug.html)。
+
+## 从这里开始
+
+1. [无线仿真器的品牌、配对和接线](docs/03-wireless-probe.md)
+2. [Windows 安装与 VS Code 无线调试教程](docs/04-setup-tutorial.md)
+3. [不走串口的 SWD 读取示例](docs/05-read-memory-tutorial.md)
+
+本例设备为**商丘爱博电子科技有限公司的 HS/FS 高速无线 DAPLink**；说明书产品图片的机身标识为 **Horco DAP_WL**，封面另有 **ABorobots** 标识。详细型号和 HS/FS 版本以实物标签为准。
+
+仓库附有[厂家说明书](reference/wireless-daplink-manual.pdf)及可复制的 [VS Code 配置示例](examples/vscode)。
+
+## 两种用途
+
 | 主题 | 解决的问题 | 主要工具 |
 | --- | --- | --- |
 | [DAPLink 下载与程序调试](docs/01-daplink-debug.md) | 如何烧录、打断点、单步、查看变量和检查固件 | DAPLink、SWD、OpenOCD、GDB、Cortex-Debug |

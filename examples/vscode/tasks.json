@@ -1,0 +1,14 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build Debug for DAPLink",
+      "type": "process",
+      "command": "cmake",
+      "args": ["--build", "--preset", "Debug"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "problemMatcher": ["$gcc"],
+      "group": "build"
+    }
+  ]
+}

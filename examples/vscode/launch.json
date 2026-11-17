@@ -1,0 +1,30 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Wireless DAPLink - STM32F103",
+      "type": "cortex-debug",
+      "request": "launch",
+      "servertype": "openocd",
+      "cwd": "${workspaceFolder}",
+      "executable": "${workspaceFolder}/build/Debug/SHUIBENG.elf",
+      "gdbPath": "${input:gdbPath}",
+      "serverpath": "${input:openocdPath}",
+      "configFiles": ["${workspaceFolder}/.vscode/daplink.cfg"],
+      "runToEntryPoint": "main",
+      "preLaunchTask": "Build Debug for DAPLink"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "gdbPath",
+      "type": "promptString",
+      "description": "Full path to arm-none-eabi-gdb.exe, without quotes"
+    },
+    {
+      "id": "openocdPath",
+      "type": "promptString",
+      "description": "Full path to openocd.exe, without quotes"
+    }
+  ]
+}
